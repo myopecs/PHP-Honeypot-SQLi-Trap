@@ -1,3 +1,5 @@
+![sqli honeypot trap in php](https://github.com/myopecs/PHP-Honeypot-SQLi-Trap/blob/main/banner.jpg?raw=true)
+
 # PHP-Honeypot-SQLi-Trap
 A simple PHP workaround to trap a hacker that tries to hack your website via SQL Injection. This code is written in PHP and wrap into a PHP function called `honeypotThis()`. This trap will detect a SQLi Payload that parse to the GET input then it will redirect the query to a dummy database called `db_stafffs` (with triple f's). From here, any SQL error will be shown as it's original form and the results are quite promising. But then, when the fourth SQLi Payload comes in (the `concat`, `union`, `group_concat`), the attacker tab will be open multiple times automatically and force the browser to download a random 1GB binary files out of nowhere.
 
