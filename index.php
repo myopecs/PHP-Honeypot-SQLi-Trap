@@ -31,6 +31,7 @@ function honeypotThis($n, $type = "general", $level = "normal"){
 			strpos($i, 'concat') > -1 || 
 			strpos($i, 'group_concat') > -1 ||
 			strpos($i, 'group') > -1 ||
+			strpos($i, 'into outfile') > -1 ||
 			isset($_GET["gameon-honeypot"]) || 
 			$level == "agressive"
 		){
