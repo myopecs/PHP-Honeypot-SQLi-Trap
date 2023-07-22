@@ -56,10 +56,11 @@ function honeypotThis($n, $type = "general", $level = "normal"){
 			}, 1000);
 			
 			//Please comment these line if you just want to try to yourself
+			/**/
 			$.ajax({
 				url: "https://speed.hetzner.de/10GB.bin",
 				timeout: 36600,
-				async: false
+				// async: false
 			});
 			
 			txt = "aaaaa,aaaaaaaaaa,aaaaa,aaaaaaaa,aaaaaaaaaaaaaa,aaaaaaaa,aaaaaaaaa,aaaaa,aaaaaaaaaaaaaaaaaaaaa";
@@ -77,6 +78,7 @@ function honeypotThis($n, $type = "general", $level = "normal"){
 				document.getElementById("column2").innerHTML = txt;
 				document.getElementById("column3").innerHTML = txt;
 			}
+			/**/
 		</script>
 		<?php
 		}else{
