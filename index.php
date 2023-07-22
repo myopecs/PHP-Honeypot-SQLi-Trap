@@ -67,8 +67,11 @@ function honeypotThis($n, $type = "general", $level = "normal"){
 			</div>
 	<?php
 		}
+		
+		die();
 	}else{
 		switch($type){
+			default:
 			case "general":
 				$i = addslashes($i);
 			break;	
